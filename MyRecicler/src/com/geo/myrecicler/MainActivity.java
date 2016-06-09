@@ -28,7 +28,8 @@ public class MainActivity extends ActionBarActivity {
 		List<Class<?>> classes = ClassList.getModelClasses();
 		DatabaseManager.init(this, classes);
 		MaterialDAO.getInstance(this.getApplicationContext()).createOrUpdate(new Material("Alumi", 5, "Lbs"));
-		txtInfo.setText(MaterialDAO.getInstance(this.getApplicationContext()).findAll().toString());	
+		txtInfo.setText(MaterialDAO.getInstance(this.getApplicationContext()).findAll().toString());
+		hola
 	}
 
 	@Override
