@@ -8,6 +8,8 @@ import com.geo.myrecicler.repository.material.MaterialDAO;
 import com.geo.myrecicler.util.ClassList;
 import com.geo.myreciclerlib.data.DatabaseManager;
 import com.geo.myreciclerlib.util.ClassFinder;
+import com.google.android.gms.common.SignInButton;
+
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -19,7 +21,9 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity {
 	 
 	private TextView txtInfo;
-	   
+	private SignInButton signInButton;
+	//private PlusClient plusClient;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) { 
 		super.onCreate(savedInstanceState);
@@ -28,8 +32,16 @@ public class MainActivity extends ActionBarActivity {
 		List<Class<?>> classes = ClassList.getModelClasses();
 		DatabaseManager.init(this, classes);
 		MaterialDAO.getInstance(this.getApplicationContext()).createOrUpdate(new Material("Alumi", 5, "Lbs"));
-		txtInfo.setText(MaterialDAO.getInstance(this.getApplicationContext()).findAll().toString());
-		hola
+		txtInfo.setText(MaterialDAO.getInstance(this.getApplicationContext()).findAll().toString()); 
+		
+		
+		//signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+		/* plusClient = new PlusClient.Builder(this, this, this)
+	        .setVisibleActivities(
+	            "http://schemas.google.com/AddActivity",
+	            "http://schemas.google.com/ListenActivity")
+	        .build();
+		*/
 	}
 
 	@Override
